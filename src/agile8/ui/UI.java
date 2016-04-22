@@ -13,4 +13,25 @@ public class UI {
 	public UI() {
 		
 	}
+	
+	public boolean checkID(String id) {
+		return true;
+	}
+	
+	public void promptCommand() {
+		
+	}
+	
+	public void promptID() {
+		
+	}
+	
+	public void showFinishMessage() {
+		
+	}
+	
+	public void showWelcomeMessage() {
+		
+	}
+
 }
