@@ -13,7 +13,7 @@ public class Main {
 	 * In this project, the program input will not be used.
 	 */
 	public static void main(String[] args) {
-		new UI();
+		(new UI()).start();
 	}
 
 }
