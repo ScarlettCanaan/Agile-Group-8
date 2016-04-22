@@ -26,10 +26,17 @@ public class UI {
 		_reader = new Scanner(System.in);
 		_exit = false;
 		_userId = "";
-		
+	}
+	
+	/**
+	 * Starts the whole UI process.
+	 */
+	public void start() {
 		while (!_exit) {
 			try {
-				start();
+				if (login()) {
+					eventLoop();
+				}
 			} catch (NoSuchIDException e) {
 				System.out.println(e.getMessage());
 			}
@@ -38,22 +45,35 @@ public class UI {
 		showFinishMessage();
 	}
 	
-	public void start() throws NoSuchIDException {
+	/**
+	 * Try to log the user in.
+	 * @return Returns True if user logged in, returns
+	 * False otherwise.
+	 * @throws NoSuchIDException
+	 */
+	public boolean login() throws NoSuchIDException {
 		promptID();
 		String input = _reader.nextLine();
 		
 		if (!checkID(input)) {
-			throw new NoSuchIDException("The input ID \"" + input + "\"does not exist!");
+			throw new NoSuchIDException("The input ID \"" + input + "\" does not exist!");
 		}
 		
 		if (input.equals("Q")) {
 			_exit = true;
-			return;
+			return false;
 		}
 		
 		showWelcomeMessage(input);
 		_userId = input;
 		
+		return true;
+	}
+	
+	/**
+	 * Starts the main event loop process.
+	 */
+	public void eventLoop() {
 		while (!_exit) {			
 			try {
 				promptCommand();
@@ -61,10 +81,14 @@ public class UI {
 				System.out.println(e.getMessage());
 			}
 		}
-		
-		_exit = true;
 	}
 	
+	/**
+	 * Check if the given user id exists.
+	 * @param id The user id to be checked
+	 * @return Returns True if id is found, returns
+	 * False otherwise.
+	 */
 	public boolean checkID(String id) {
 		if (_gradeSystem.containsID(id)) {
 			return true;
@@ -74,6 +98,12 @@ public class UI {
 		}
 	}
 	
+	/**
+	 * Prompt all command options to user. Then reads user's
+	 * input and execute corresponding operations.
+	 * @return Returns the prompted command message.
+	 * @throws NoSuchCommandException
+	 */
 	public String promptCommand() throws NoSuchCommandException {
 		String message = "Input command:\n" +
 				"1) G Show grades (Grade)\n" +
@@ -105,18 +135,31 @@ public class UI {
 		return message;
 	}
 	
+	/**
+	 * Prompts message to ask for user's ID. Also tell user
+	 * can exit this grade system by entering 'Q'.
+	 * @return Returns the prompted message.
+	 */
 	public String promptID() {
 		String message = "Input ID or input Q to exit: ";
 		System.out.println(message);
 		return message;
 	}
 	
+	/**
+	 * Prompts finish message to user.
+	 * @return Returns the prompted message.
+	 */
 	public String showFinishMessage() {
 		String message = "Thanks for using :)";
 		System.out.println(message);
 		return message;
 	}
 	
+	/**
+	 * Prompts the welcome message to user.
+	 * @return Returns the prompted message.
+	 */
 	public String showWelcomeMessage(String id) {
 		String message = "Welcome " + id + "!";
 		System.out.println(message);
