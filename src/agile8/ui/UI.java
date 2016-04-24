@@ -117,10 +117,20 @@ public class UI {
 		
 		switch (input) {
 			case "G":
-				System.out.println(_gradeSystem.showGrade(_userId));
+				try {
+					System.out.println(_gradeSystem.showGrade(_userId));
+				} catch (NoSuchIDException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
 				break;
 			case "R":
-				System.out.println(_gradeSystem.showRank(_userId));
+				try {
+					System.out.println(_gradeSystem.showRank(_userId));
+				} catch (NoSuchIDException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
 				break;
 			case "W":
 				_gradeSystem.updateWeights();
