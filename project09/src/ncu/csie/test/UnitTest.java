@@ -160,6 +160,18 @@ public class UnitTest {
 		myUI = new UI();
 		assertEquals(false, myUI.aGradeSystem.containsID("123456") >= 0);
 	}
+	
+	@Test
+	public void testModityGrade() throws NoSuchIDExceptions,
+			NoSuchCommandExceptions {
+
+		inContent = new ByteArrayInputStream("962001044\nM\n962001044\nno\nyes\n90\nno\nno\nno\nQ".getBytes());
+		System.setIn(inContent);
+		outContent = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(outContent));
+		myUI = new UI();
+		assertEquals(false, myUI.aGradeSystem.aList.get(1).getlab2() == 90);
+}	
 
 	@Test(expected = NoSuchCommandExceptions.class)
 	public void testException1() throws NoSuchIDExceptions,
