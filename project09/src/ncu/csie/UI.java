@@ -67,7 +67,7 @@ public class UI {
 	public void promptCommand() throws NoSuchCommandExceptions {
 		while (true) {
 			System.out
-					.println("¿é¤J«ü¥O\n\t1) G Åã¥Ü¦¨ÁZ (Grade)\n\t2) R Åã¥Ü±Æ¦W (Rank)\n\t3) W§ó·s°t¤À (Weight)\n\t4) E Â÷¶}¿ï³æ (Exit)\n\t\t¨Ï¥ÎªÌ¿é¤J¡G");
+					.println("¿é¤J«ü¥O\n\t1) G Åã¥Ü¦¨ÁZ (Grade)\n\t2) R Åã¥Ü±Æ¦W (Rank)\n\t3) W§ó·s°t¤À (Weight)\n\t4) M§ó¸ü¸Ä·Ö”µ (Modify)\n\t5)Q ëxé_ (Quit)\t¨Ï¥ÎªÌ¿é¤J¡G");
 			String intputCommand = scanner.next();
 			switch (intputCommand.charAt(0)) {
 			case 'G':
@@ -78,6 +78,9 @@ public class UI {
 				break;
 			case 'W':
 				aGradeSystem.updateWeights();
+				break;
+			case 'M':
+				aGradeSystem.modifyGrades();
 				break;
 			case 'E':
 				return;
