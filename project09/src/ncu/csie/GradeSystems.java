@@ -11,10 +11,10 @@ import ncu.csie.modle.Grades;
 
 /**
  * *************************************************************************
- * class GradeSystemsÀx¦s a list of student grades.
+ * class GradeSystemså„²å­˜ a list of student grades.
  * 
- * containsID(ID) //¬ÝaGradeSystem¦³§_§t¦¹ID GradeSystems () //«Øºc¤l showGrade(ID)
- * //Åã¥Ü¦¹ID¾Ç¥Íªº¦¨ÁZ showRank(ID) //Åã¥Ü¦¹ID¾Ç¥Íªº±Æ¦W updateWeights () //§ó§ï¤À¼Æ­pºâÅv­«
+ * containsID(ID) //çœ‹aGradeSystemæœ‰å¦å«æ­¤ID GradeSystems () //å»ºæ§‹å­ showGrade(ID)
+ * //é¡¯ç¤ºæ­¤IDå­¸ç”Ÿçš„æˆç¸¾ showRank(ID) //é¡¯ç¤ºæ­¤IDå­¸ç”Ÿçš„æŽ’å updateWeights () //æ›´æ”¹åˆ†æ•¸è¨ˆç®—æ¬Šé‡
  *************************************************************************** */
 
 public class GradeSystems {
@@ -63,7 +63,7 @@ public class GradeSystems {
 	/**
 	 * ------------------------------------------------------------------------
 	 * containsID (ID) return int parameter(index of data): ID a user ID ex:
-	 * 123456789 time: O(n) n is aGradeSystem ¤º¥þ¯Z¤H¼Æ
+	 * 123456789 time: O(n) n is aGradeSystem å…§å…¨ç­äººæ•¸
 	 * 
 	 * -------------------------------------------------------------------------
 	 */
@@ -80,7 +80,7 @@ public class GradeSystems {
 	/**
 	 * ------------------------------------------------------------------------
 	 * showGrade (ID) return String parameter: ID a user ID ex: 123456789 time:
-	 * O(n) n is aGradeSystem ¤º¥þ¯Z¤H¼Æ
+	 * O(n) n is aGradeSystem å…§å…¨ç­äººæ•¸
 	 * 
 	 * -------------------------------------------------------------------------
 	 */
@@ -89,7 +89,7 @@ public class GradeSystems {
 			if (aList.get(nOfId).getID().equals(Id)) {
 				temp = aList.get(nOfId);
 				String grade = String
-						.format("%s¦¨ÁZ¡G lab1¡G     %s¡@\n\tlab2¡G     %s¡@\n\tlab3¡G     %s¡@\n\tmid-term :  %s¡@\n\tfinal exam¡G%s¡@\n\ttotal grade : %s\n",
+						.format("%sæˆç¸¾ï¼š lab1ï¼š     %sã€€\n\tlab2ï¼š     %sã€€\n\tlab3ï¼š     %sã€€\n\tmid-term :  %sã€€\n\tfinal examï¼š%sã€€\n\ttotal grade : %s\n",
 								temp.getName(), temp.getlab1(), temp.getlab2(),
 								temp.getlab3(), temp.getmidTerm(),
 								temp.getfinalExam(), temp.getTotalGrade());
@@ -103,7 +103,7 @@ public class GradeSystems {
 	/**
 	 * ------------------------------------------------------------------------
 	 * showRank (ID) return int parameter(rank): ID a user ID ex: 123456789
-	 * time: O(n) n is aGradeSystem ¤º¥þ¯Z¤H¼Æ
+	 * time: O(n) n is aGradeSystem å…§å…¨ç­äººæ•¸
 	 * 
 	 * -------------------------------------------------------------------------
 	 */
@@ -124,7 +124,7 @@ public class GradeSystems {
 					rank++;
 			}
 		}
-		System.out.printf("%s±Æ¦W²Ä%d\r\n", aList.get(indexOfId).getName(), rank);
+		System.out.printf("%sæŽ’åç¬¬%d\r\n", aList.get(indexOfId).getName(), rank);
 
 		return rank;
 	}
@@ -147,7 +147,7 @@ public class GradeSystems {
 
 	private void setWeights(float[] newWeight) {
 		System.out
-				.printf("½Ð½T»{·s°t¤À\n\tlab1 %.0f%%\n\tlab2 %.0f%%\n\tlab3 %.0f%%\n\tmid-term %.0f%%\n\tfinal exam %.0f%%\n  ¥H¤W¥¿½T¶Ü? Y (Yes) ©Î N (No)",
+				.printf("è«‹ç¢ºèªæ–°é…åˆ†\n\tlab1 %.0f%%\n\tlab2 %.0f%%\n\tlab3 %.0f%%\n\tmid-term %.0f%%\n\tfinal exam %.0f%%\n  ä»¥ä¸Šæ­£ç¢ºå—Ž? Y (Yes) æˆ– N (No)",
 						newWeight[0], newWeight[1], newWeight[2], newWeight[3],
 						newWeight[4]);
 
@@ -157,7 +157,7 @@ public class GradeSystems {
 	}
 
 	private void getNewWeights(float[] newWeight) {
-		System.out.println("¿é¤J·s°t¤À");
+		System.out.println("è¼¸å…¥æ–°é…åˆ†");
 		System.out.printf("\tlab1 ");
 		newWeight[0] = Float.valueOf(scanner.next());
 		System.out.printf("\tlab2 ");
@@ -172,14 +172,14 @@ public class GradeSystems {
 
 	private void showOldWeights() {
 		System.out
-				.printf("ÂÂ°t¤À\n\tlab1 %.0f%%\n\tlab2 %.0f%%\n\tlab3 %.0f%%\n\tmid-term %.0f%%\n\tfinal exam %.0f%%\n",
+				.printf("èˆŠé…åˆ†\n\tlab1 %.0f%%\n\tlab2 %.0f%%\n\tlab3 %.0f%%\n\tmid-term %.0f%%\n\tfinal exam %.0f%%\n",
 						weights[0] * 100, weights[1] * 100, weights[2] * 100,
 						weights[3] * 100, weights[4] * 100);
 	}
 	
 	public void modifyGrades() {
 		String[] gradeName = {"Lab1", "Lab2" , "Lab3", "Mid-term", "Final exam"};
-		System.out.println("Ý”Èë¸ü¸Ä·Ö”µŒWÉúµÄID");
+		System.out.println("è¼¸å…¥æ›´æ”¹åˆ†æ•¸å­¸ç”Ÿçš„");
 		String inputID = scanner.next();
 		int studIDIndex;
 		if	((studIDIndex = containsID(inputID)) >= 0) {
@@ -188,16 +188,16 @@ public class GradeSystems {
 			showGrade(inputID);
 			String inputCommand;
 			for	(int i = 0; i < gradeName.length; ++i) {
-				System.out.print("¸ü¸Ä" + studName + gradeName[i] + "·Ö”µ? (yes/no) ");
+				System.out.print("æ›´æ”¹" + studName + gradeName[i] + "åˆ†æ•¸? (yes/no) ");
 				inputCommand = scanner.next();
 				if (inputCommand.equals("yes")) {
-					System.out.print("ÊäÈë" +  studName + gradeName[i] + "ÐÂ·Ö”µ  ");
+					System.out.print("è¾“å…¥" +  studName + gradeName[i] + "æ–°åˆ†æ•¸  ");
 					String inputGrade = scanner.next();
 					setGrade(studIDIndex, i, Integer.parseInt(inputGrade));
-					System.out.println(studName + "ÐÂ·Ö”µ" + gradeName[i] + inputGrade + " ¸ÄºÃÁË");
+					System.out.println(studName + "æ–°åˆ†æ•¸" + gradeName[i] + inputGrade + " æ”¹å¥½äº†");
 				}
 			}
-			System.out.println("¸ü¸Ä·Ö”µ" + inputID + studName + " Íê³ÉÁË");
+			System.out.println("æ›´æ”¹åˆ†æ•¸" + inputID + studName + " å®Œæˆäº†");
 		}
 	}
 	
