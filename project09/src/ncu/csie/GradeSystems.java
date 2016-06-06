@@ -176,5 +176,49 @@ public class GradeSystems {
 						weights[0] * 100, weights[1] * 100, weights[2] * 100,
 						weights[3] * 100, weights[4] * 100);
 	}
+	
+	public void modifyGrades() {
+		String[] gradeName = {"Lab1", "Lab2" , "Lab3", "Mid-term", "Final exam"};
+		System.out.println("輸入更改分數學生的ID");
+		String inputID = scanner.next();
+		int studIDIndex;
+		if	((studIDIndex = containsID(inputID)) >= 0) {
+			String studName = getStudentName(studIDIndex);
+			System.out.println(studIDIndex);
+			showGrade(inputID);
+			String inputCommand;
+			for	(int i = 0; i < gradeName.length; ++i) {
+				System.out.print("更改" + studName + gradeName[i] + "分數? (yes/no) ");
+				inputCommand = scanner.next();
+				if (inputCommand.equals("yes")) {
+					System.out.print("输入" +  studName + gradeName[i] + "新分數  ");
+					String inputGrade = scanner.next();
+					setGrade(studIDIndex, i, Integer.parseInt(inputGrade));
+					System.out.println(studName + "新分數" + gradeName[i] + inputGrade + " 改好了");
+				}
+			}
+			System.out.println("更改分數" + inputID + studName + " 完成了");
+		}
+	}
+	
+	private void setGrade(int studID, int i, int grade) {
+		switch (i) {
+		case 0:
+			aList.get(studID).setlab1(grade);
+			break;
+		case 1:
+			aList.get(studID).setlab2(grade);
+			break;
+		case 2:
+			aList.get(studID).setlab3(grade);
+			break;
+		case 3:
+			aList.get(studID).setmidTerm(grade);
+			break;
+		case 4:
+			aList.get(studID).setfinalExam(grade);
+			break;
+		}
+	}
 
 }
